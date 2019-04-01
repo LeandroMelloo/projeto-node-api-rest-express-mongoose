@@ -1,0 +1,24 @@
+{
+  "name": "api_nodejs",
+  "version": "1.0.0",
+  "description": "Construindo API com nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeandroMelloo/NodeApi.git"
+  },
+  "author": "Leandro Mello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeandroMelloo/NodeApi/issues"
+  },
+  "homepage": "https://github.com/LeandroMelloo/NodeApi#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20"
+  }
+}
