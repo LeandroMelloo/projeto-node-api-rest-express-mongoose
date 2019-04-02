@@ -8,17 +8,15 @@ const UserSchema = new Schema({
     created: { type: Date, default: Date.now }
 });
 
-UserSchema.pre('save', function (next) {
+UserSchema.pre('save', async function (next) {
     let user = this;
 
     // se não existir modificação no registro do user, next.
     if(!user.isModified('password')) return next();
 
     // modificação do registro do user, será utilizado bcrypt para encrypted do password.
-    bcrypt.hash(user.password, 10, (error, encrypted) => {
-        user.password = encrypted;
-        return next();
-    });
+    user.password = await bcrypt.hash(user.password, 10);
+    return next();
 });
 
 module.exports = mongoose.model('User', UserSchema);
