@@ -2,11 +2,12 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./Config/config');
 
 const indexRoute = require('./Routes/index');
 const usersRoute = require('./Routes/users');
 
-const url = 'mongodb+srv://admin:admin@clusterapi-vqrfi.mongodb.net/test?retryWrites=true';
+const url = config.bd_string;
 const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true };
 
 mongoose.connect(url, options);
