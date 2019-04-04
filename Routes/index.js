@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../Middlewares/auth');
 
-router.get('/', (req, res) => {
+router.get('/', auth, (req, res) => {
+    console.log(res.locals.auth_decoded);
     return res.send({ message: 'Essa informação é muito importante. Usuários não autorizados não deveriam recebê-la!' });
 });
 
